@@ -16,11 +16,11 @@ jobs:
         sudo apt update
         sudo apt install -y build-essential libncurses5-dev zlib1g-dev gawk git gettext libssl-dev python3 python3-pip unzip wget
 
-    - name: Download OpenWrt SDK
+    - name: Download OpenWrt SDK (TUNA Mirror)
       run: |
         mkdir -p ~/openwrt
         cd ~/openwrt
-        wget -q --show-progress https://downloads.openwrt.org/releases/23.05.3/targets/x86/64/openwrt-sdk-23.05.3-x86-64_gcc-12.3.0_musl.Linux-x86_64.tar.xz
+        wget -q --show-progress https://mirrors.tuna.tsinghua.edu.cn/openwrt/releases/23.05.3/targets/x86/64/openwrt-sdk-23.05.3-x86-64_gcc-12.3.0_musl.Linux-x86_64.tar.xz
         if [ ! -f openwrt-sdk-23.05.3-x86-64_gcc-12.3.0_musl.Linux-x86_64.tar.xz ]; then
           echo "SDK download failed!"
           exit 1
