@@ -26,7 +26,12 @@ jobs:
           exit 1
         fi
         tar -xf openwrt-sdk-*.tar.xz
-        mv openwrt-sdk-23.05.3-x86-64* sdk
+        SDK_DIR=$(find . -maxdepth 1 -type d -name "openwrt-sdk-*")
+        if [ -z "$SDK_DIR" ]; then
+          echo "SDK directory not found after extraction."
+          exit 1
+        fi
+        mv "$SDK_DIR" sdk
 
     - name: Prepare QModem Package
       run: |
